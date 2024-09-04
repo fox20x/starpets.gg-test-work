@@ -1,0 +1,48 @@
+body
+  background: $color_bg
+
+.container
+  width: 100%
+  max-width: calc( 1170px + 20px * 2 )
+  padding: 0 20px
+  margin: 0 auto
+
+
+/* Header */
+.header
+  border-bottom: 1px solid $color_white
+
+  // &__container
+
+  &__wrapper
+    display: flex
+    align-items: center
+    justify-content: space-between
+    gap: 30px
+    padding: 20px 0
+
+  // &__nav
+  // &__dropdown
+
+
+
+
+/* Main */
+// .main
+
+
+.block-main
+  width: 100%
+  height: calc(100vh - 64px)
+  min-height: 500px
+  padding-bottom: 64px
+
+  &__container
+    height: 100%
+
+  &__wrapper
+    @include center-block
+    flex-direction: column
+    width: 100%
+    height: 100%
+

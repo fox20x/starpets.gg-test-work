@@ -1,0 +1,139 @@
+/* Button */
+// .button
+//   &:hover
+//   &:focus
+
+
+/* Nav */
+.nav
+  display: inline-flex
+  align-items: center
+  gap: 30px
+  &__link
+    color: $color_gray
+    transition: $transition
+    &:hover, &.active
+      color: $color_white
+
+
+/* Dropdown */
+.dropdown
+  position: relative
+  &__button
+    display: inline-flex
+    align-items: center
+    gap: 4px
+    color: currentColor
+    .arrow
+      transition: $transition
+  &__content
+    position: absolute
+    top: 100%
+    left: 50%
+    display: none
+    width: auto
+    margin-top: 8px
+    padding: 10px
+    background: $color_bg
+    border-radius: 8px
+    border: 1px solid $color_white
+    transition: $transition
+    visibility: hidden
+    opacity: 0
+    transform: translateX(-50%) translateY(-20px)
+    z-index: 2
+
+  &.open
+    .dropdown__button
+      .arrow
+        transform: rotateZ(-180deg)
+    .dropdown__content
+      visibility: visible
+      opacity: 1
+      transform: translateX(-50%) translateY(0px)
+
+
+/* Input */
+.input
+  width: 100%
+  background: none
+  border: none
+  appearance: textfield
+
+
+/* Currency list */
+.currency-list
+  list-style: none
+  padding: 0
+  &__item
+    text-align: center
+    color: $color_gray
+    padding: .25em .75em
+    transition: $transition
+    cursor: pointer
+    &:hover, &.active
+      color: $color_white
+
+
+/* Pair */
+.pair
+  width: 100%
+  max-width: 500px
+
+  &__list
+    width: 100%
+    list-style: none
+    padding: 0
+
+  &__item
+    font-size: 38px
+    font-weight: 500
+    display: flex
+    justify-content: center
+    gap: .5em
+    width: 100%
+    &-rate
+      flex: 1
+      text-align: right
+    // &-equals
+    &-main
+      flex: 1
+      text-align: left
+    .currency
+      font-size: 0.8em
+      text-transform: uppercase
+      opacity: .24
+
+
+.convert
+  width: 100%
+  max-width: 300px
+
+  &__row
+    display: flex
+    border: 1px solid $color_white
+    border-radius: 10px
+    background: rgba($color_black, 0.24)
+    &:not(:last-child)
+      margin-bottom: 20px
+
+  &__input, &__currency
+    height: 40px
+    padding: .5em 1em
+
+  &__input
+    flex: 1
+
+  &__currency
+    position: relative
+    &::before
+      content: ''
+      position: absolute
+      top: 0.5em
+      bottom: 0.5em
+      left: 0
+      display: block
+      width: 1px
+      background: $color_white
+
+  
