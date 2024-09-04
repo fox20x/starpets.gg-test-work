@@ -4,8 +4,13 @@ import Home from "../views/Home.vue";
 const routes = [
   {
     path: "/",
-    name: "Home",
+    name: "Главная",
     component: Home,
+  },
+  {
+    path: "/convert",
+    name: "Конвертация",
+    component: () => import("../views/Convert.vue"),
   },
 ];
 

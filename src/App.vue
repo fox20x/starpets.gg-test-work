@@ -1,6 +1,11 @@
 <template>
+  <Header />
   <router-view />
 </template>
 
-<style lang="scss">
+<script setup>
+import Header from "@/components/Header.vue";
+</script>
+<style lang="sass">
+@import '@/assets/sass/main.sass'
 </style>
