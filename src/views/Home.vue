@@ -5,31 +5,19 @@
         <div class="block-main__wrapper">
           <div class="pair">
             <ul class="pair__list">
-              <li class="pair__item">
+              <li
+                v-for="(item, index) in listCurrenciesFiltered"
+                :key="index"
+                class="pair__item"
+              >
                 <div class="pair__item-rate">
-                  1<span class="currency">Usd</span>
+                  {{ calcRate1(item, mainCurrency).toFixed(2) }}
+                  <span class="currency">{{ item }}</span>
                 </div>
                 <div class="pair__item-equals">=</div>
                 <div class="pair__item-main">
-                  101,22<span class="currency">RUb</span>
-                </div>
-              </li>
-              <li class="pair__item">
-                <div class="pair__item-rate">
-                  1<span class="currency">Usd</span>
-                </div>
-                <div class="pair__item-equals">=</div>
-                <div class="pair__item-main">
-                  101,22<span class="currency">RUb</span>
-                </div>
-              </li>
-              <li class="pair__item">
-                <div class="pair__item-rate">
-                  1 <span class="currency">Usd</span>
-                </div>
-                <div class="pair__item-equals">=</div>
-                <div class="pair__item-main">
-                  101,22 <span class="currency">RUb</span>
+                  {{ calcRate2(item, mainCurrency).toFixed(2) }}
+                  <span class="currency">{{ mainCurrency.toUpperCase() }}</span>
                 </div>
               </li>
             </ul>
@@ -40,4 +28,22 @@
   </main>
 </template>
 
-<script></script>
+<script setup>
+import { inject, computed } from "vue";
+
+const { mainCurrency, listCurrencies, pairCurrencies } = inject("useCurrency");
+
+const listCurrenciesFiltered = computed(() => {
+  return listCurrencies.filter((currency) => currency != mainCurrency.value);
+});
+
+function calcRate1(currency1, currency2) {
+  const rate = pairCurrencies.value[`${currency1}-${currency2}`];
+  return rate <= 1 ? 1 / rate : 1;
+}
+
+function calcRate2(currency1, currency2) {
+  const rate = pairCurrencies.value[`${currency1}-${currency2}`];
+  return rate <= 1 ? 1 : rate;
+}
+</script>

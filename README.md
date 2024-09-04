@@ -1,4 +1,4 @@
-# test-work1
+# test-work
 
 ## Project setup
 ```

@@ -1,19 +1,19 @@
 <template>
-  <div class="dropdown" v-if="currencyModel">
+  <div class="dropdown" v-if="mainCurrency">
     <button class="dropdown__button">
-      {{ currencyModel }}
+      {{ mainCurrency.toUpperCase() }}
       <span class="arrow material-symbols-rounded">keyboard_arrow_down</span>
     </button>
     <div class="dropdown__content">
       <ul class="currency-list">
         <li
-          v-for="(item, index) in props.currencyList"
+          v-for="(item, index) in listCurrencies"
           :key="index"
           class="currency-list__item"
-          :class="{ active: item == currencyModel }"
+          :class="{ active: item == mainCurrency }"
           @click="select(item)"
         >
-          {{ item }}
+          {{ item.toUpperCase() }}
         </li>
       </ul>
     </div>
@@ -21,16 +21,14 @@
 </template>
 
 <script setup>
-import { defineModel, defineProps } from "vue";
-const currencyModel = defineModel();
+import { inject } from "vue";
 
-const props = defineProps({
-  currencyList: { type: Array, default: () => [] },
-});
+const { mainCurrency, updateMainCurrency, listCurrencies } =
+  inject("useCurrency");
 
 function select(currencyName) {
   console.log("currencyName: ", currencyName);
-  currencyModel.value = currencyName;
+  updateMainCurrency(currencyName);
 }
 </script>
 
