@@ -22,15 +22,12 @@
 
 <script setup>
 import { defineModel, defineProps } from "vue";
+
 const model = defineModel();
 
 const props = defineProps({
   currencyList: { type: Array, default: () => [] },
 });
-
-// function select(currencyName) {
-//   currencyModel.value = currencyName;
-// }
 </script>
 
 <style></style>

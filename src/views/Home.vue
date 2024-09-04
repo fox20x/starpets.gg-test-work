@@ -38,12 +38,12 @@ const listCurrenciesFiltered = computed(() => {
 });
 
 function calcRate1(currency1, currency2) {
-  const rate = pairCurrencies.value[`${currency1}-${currency2}`];
+  const rate = +pairCurrencies.value[`${currency1}-${currency2}`];
   return rate <= 1 ? 1 / rate : 1;
 }
 
 function calcRate2(currency1, currency2) {
-  const rate = pairCurrencies.value[`${currency1}-${currency2}`];
+  const rate = +pairCurrencies.value[`${currency1}-${currency2}`];
   return rate <= 1 ? 1 : rate;
 }
 </script>
