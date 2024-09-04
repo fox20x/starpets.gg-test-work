@@ -1,7 +1,7 @@
 <template>
-  <div class="dropdown" v-if="currencyModel">
+  <div class="dropdown" v-if="model">
     <button class="dropdown__button">
-      {{ currencyModel }}
+      {{ model.toUpperCase() }}
       <span class="arrow material-symbols-rounded">keyboard_arrow_down</span>
     </button>
     <div class="dropdown__content">
@@ -10,10 +10,10 @@
           v-for="(item, index) in props.currencyList"
           :key="index"
           class="currency-list__item"
-          :class="{ active: item == currencyModel }"
-          @click="select(item)"
+          :class="{ active: item == model }"
+          @click="model = item"
         >
-          {{ item }}
+          {{ item.toUpperCase() }}
         </li>
       </ul>
     </div>
@@ -22,16 +22,15 @@
 
 <script setup>
 import { defineModel, defineProps } from "vue";
-const currencyModel = defineModel();
+const model = defineModel();
 
 const props = defineProps({
   currencyList: { type: Array, default: () => [] },
 });
 
-function select(currencyName) {
-  console.log("currencyName: ", currencyName);
-  currencyModel.value = currencyName;
-}
+// function select(currencyName) {
+//   currencyModel.value = currencyName;
+// }
 </script>
 
 <style></style>

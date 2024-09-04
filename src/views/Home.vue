@@ -11,12 +11,12 @@
                 class="pair__item"
               >
                 <div class="pair__item-rate">
-                  {{ calcRate1(item, mainCurrency).toFixed(2) }}
+                  {{ calcRate1(item, mainCurrency)?.toFixed(2) }}
                   <span class="currency">{{ item }}</span>
                 </div>
                 <div class="pair__item-equals">=</div>
                 <div class="pair__item-main">
-                  {{ calcRate2(item, mainCurrency).toFixed(2) }}
+                  {{ calcRate2(item, mainCurrency)?.toFixed(2) }}
                   <span class="currency">{{ mainCurrency.toUpperCase() }}</span>
                 </div>
               </li>

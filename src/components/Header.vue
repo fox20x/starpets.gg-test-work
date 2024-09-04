@@ -10,14 +10,14 @@
             Конвертация
           </router-link>
         </nav>
-        <HeaderDropdown class="header__dropdown" />
+        <SelectCurrency class="header__dropdown" />
       </div>
     </div>
   </header>
 </template>
 
 <script setup>
-import HeaderDropdown from "./HeaderDropdown.vue";
+import SelectCurrency from "./SelectCurrency.vue";
 </script>
 
 <style></style>
